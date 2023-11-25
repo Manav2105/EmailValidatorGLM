@@ -24,7 +24,7 @@ submitBtn.addEventListener("click", async (e) => {
 
   let emailCombinations = [];
   let str = ``;
-  let key = "a0cd58d51d8d4f06b2542a9aaf76e1f9";
+  let key = "API_KEY";
 
   suggestions.forEach((suggestion) => {
     const listItem = document.createElement("li");
