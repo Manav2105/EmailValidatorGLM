@@ -11,17 +11,18 @@ submitBtn.addEventListener("click", async (e) => {
     `${lastName}.${firstName}@${companyName}`,
     `${firstName}@${companyName}`,
     `${lastName}@${companyName}`,
-    // `${firstName.charAt(0)}${lastName}@${companyName}`,
-    // `${lastName.charAt(0)}${firstName}@${companyName}`,
-    // `${firstName.charAt(0)}.${lastName}@${companyName}`,
-    // `${lastName.charAt(0)}.${firstName}@${companyName}`,
-    // `${firstName.charAt(0)}-${lastName}@${companyName}`,
-    // `${lastName.charAt(0)}-${firstName}@${companyName}`,
-    // `${firstName}${lastName}@${companyName}`,
-    // `${firstName}.${lastName.charAt(0)}@${companyName}`,
-    // `${firstName}${lastName.charAt(0)}@${companyName}`,
+    `${firstName.charAt(0)}${lastName}@${companyName}`,
+    `${lastName.charAt(0)}${firstName}@${companyName}`,
+    `${firstName.charAt(0)}.${lastName}@${companyName}`,
+    `${lastName.charAt(0)}.${firstName}@${companyName}`,
+    `${firstName.charAt(0)}-${lastName}@${companyName}`,
+    `${lastName.charAt(0)}-${firstName}@${companyName}`,
+    `${firstName}${lastName}@${companyName}`,
+    `${firstName}.${lastName.charAt(0)}@${companyName}`,
+    `${firstName}${lastName.charAt(0)}@${companyName}`,
   ];
-
+  resultCont.innerHTML = `<img width="63px" src="emoji-171_256.gif" alt="">`;
+  
   let emailCombinations = [];
   let str = ``;
   let key = "API_KEY";
