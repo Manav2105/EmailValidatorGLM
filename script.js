@@ -24,7 +24,7 @@ submitBtn.addEventListener("click", async (e) => {
   resultCont.innerHTML = `<img width="83px" src="emoji-171_256.gif" alt="">`;
   let emailCombinations = [];
   let str = ``;
-  let key = "API_KEY";
+  // let key = "API_KEY";
 
   suggestions.forEach((suggestion) => {
     const listItem = document.createElement("li");
