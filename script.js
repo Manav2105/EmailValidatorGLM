@@ -90,5 +90,4 @@ function copyToClipboard(text, button) {
   document.execCommand("copy");
   document.body.removeChild(textarea);
   console.log("Email copied to clipboard: " + text);
-  document.getElementById("CopyBtn").style.color = "white";
 }
