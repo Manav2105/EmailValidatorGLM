@@ -97,7 +97,7 @@ input[type="text"] {
 
 
 #result {
-  border: 10px solid #ccdfe4;
+  border: 10px dashed #ccdfe4;
   border-radius: 25px;
   margin: 18px 13px 0px 13px;
   background-color: #d1fcfc;
