@@ -21,8 +21,7 @@ submitBtn.addEventListener("click", async (e) => {
     `${firstName}.${lastName.charAt(0)}@${companyName}`,
     `${firstName}${lastName.charAt(0)}@${companyName}`,
   ];
-  resultCont.innerHTML = `<img width="63px" src="emoji-171_256.gif" alt="">`;
-  
+  resultCont.innerHTML = `<img width="83px" src="emoji-171_256.gif" alt="">`;
   let emailCombinations = [];
   let str = ``;
   let key = "API_KEY";
@@ -30,6 +29,28 @@ submitBtn.addEventListener("click", async (e) => {
   suggestions.forEach((suggestion) => {
     const listItem = document.createElement("li");
     listItem.textContent = suggestion;
+
+    // Create a copy button for each email with an image
+    const copyButton = document.createElement("button");
+    copyButton.id = "CopyBtn";
+
+    // Create an image element
+    const imgElement = document.createElement("img");
+    imgElement.src = "/copy-icons/copy.png";
+    // imgElement.src = "copy2.png";
+    // imgElement.src = "copy3.png";
+    imgElement.alt = "CopyImg";
+
+    // Append the image to the button
+    copyButton.appendChild(imgElement);
+
+    copyButton.addEventListener("click", () => {
+      copyToClipboard(suggestion);
+    });
+
+    // Append the email and copy button to the list item
+    listItem.appendChild(copyButton);
+
     emailCombinations.push(suggestion);
     emailList.appendChild(listItem);
   });
@@ -37,7 +58,6 @@ submitBtn.addEventListener("click", async (e) => {
   for (let k = 0; k < emailCombinations.length; k++) {
     let email = emailCombinations[k];
     let url = `https://api.zerobounce.net/v2/validate?api_key=${key}&email=${email}&ip_address=156.124.12.145`;
-    console.log("Email validated: " + emailCombinations[k]);
 
     zbValidating();
     async function zbValidating() {
@@ -47,7 +67,6 @@ submitBtn.addEventListener("click", async (e) => {
         for (key of Object.keys(result)) {
           if (key == "status") {
             str = str + `<li>${result[key]}</li>`;
-            console.log(result[key]);
           }
           resultCont.innerHTML = str;
         }
@@ -57,3 +76,18 @@ submitBtn.addEventListener("click", async (e) => {
     }
   }
 });
+
+document.getElementById('resultCont').style.backgroundColor = "#5dffff78"
+document.getElementById('resultCont').style.color = "green"
+
+// Function to copy text to clipboard
+function copyToClipboard(text, button) {
+  const textarea = document.createElement("textarea");
+  textarea.value = text;
+  document.body.appendChild(textarea);
+  textarea.select();
+  document.execCommand("copy");
+  document.body.removeChild(textarea);
+  console.log("Email copied to clipboard: " + text);
+  document.getElementById("CopyBtn").style.color = "white";
+}
