@@ -36,7 +36,8 @@ submitBtn.addEventListener("click", async (e) => {
 
     // Create an image element
     const imgElement = document.createElement("img");
-    imgElement.src = "/copy-icons/copy.png";
+    // imgElement.src = "/copy-icons/copy.png";
+    imgElement.src = "copy.png";
     // imgElement.src = "copy2.png";
     // imgElement.src = "copy3.png";
     imgElement.alt = "CopyImg";
