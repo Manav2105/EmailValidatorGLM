@@ -117,6 +117,8 @@ input[type="text"] {
   border: 10px solid #ccdfe4;
   border-radius: 25px;
   padding: 10px;
+  height: 300px;
+  overflow: auto;
 }
 
 #emailList {
