@@ -15,16 +15,38 @@ submitBtn.addEventListener("click", async (e) => {
     `${lastName.charAt(0)}${firstName}@${companyName}`,
     `${firstName.charAt(0)}.${lastName}@${companyName}`,
     `${lastName.charAt(0)}.${firstName}@${companyName}`,
+    `${firstName}-${lastName}@${companyName}`,
+    `${lastName}-${firstName}@${companyName}`,
     `${firstName.charAt(0)}-${lastName}@${companyName}`,
     `${lastName.charAt(0)}-${firstName}@${companyName}`,
+    `${firstName}-${lastName.charAt(0)}@${companyName}`,
+    `${lastName}-${firstName.charAt(0)}@${companyName}`,
     `${firstName}${lastName}@${companyName}`,
+    `${lastName}${firstName}@${companyName}`,
     `${firstName}.${lastName.charAt(0)}@${companyName}`,
+    `${lastName}.${firstName.charAt(0)}@${companyName}`,
     `${firstName}${lastName.charAt(0)}@${companyName}`,
+    `${lastName}${firstName.charAt(0)}@${companyName}`,
+    `${firstName}_${lastName}@${companyName}`,
+    `${lastName}_${firstName}@${companyName}`,
+    `${firstName.charAt(0)}_${lastName}@${companyName}`,
+    `${lastName.charAt(0)}_${firstName}@${companyName}`,
+    `${firstName.charAt(0)}.${lastName.charAt(0)}@${companyName}`,
+    `${lastName.charAt(0)}.${firstName.charAt(0)}@${companyName}`,
+    `${firstName.charAt(0)}_${lastName.charAt(0)}@${companyName}`,
+    `${lastName.charAt(0)}_${firstName.charAt(0)}@${companyName}`,
+    `${firstName}_${lastName.charAt(0)}@${companyName}`,
+    `${lastName}_${firstName.charAt(0)}@${companyName}`,
+    `${firstName.charAt(0)}${lastName.charAt(0)}@${companyName}`,
+    `${lastName.charAt(0)}${firstName.charAt(0)}@${companyName}`,
+    `${firstName.charAt(0)}-${lastName.charAt(0)}@${companyName}`,
+    `${lastName.charAt(0)}-${firstName.charAt(0)}@${companyName}`,
   ];
   resultCont.innerHTML = `<img width="83px" src="emoji-171_256.gif" alt="">`;
   let emailCombinations = [];
   let str = ``;
-  // let key = "API_KEY";
+  // let key = "e6fb42b4035142b19f1a9f2a8634fb9c";
+  let key = "API_KEY";
 
   suggestions.forEach((suggestion) => {
     const listItem = document.createElement("li");
@@ -67,6 +89,12 @@ submitBtn.addEventListener("click", async (e) => {
         let result = await res.json();
         for (key of Object.keys(result)) {
           if (key == "status") {
+            // OPTIMIZATION
+            // if (result[key].toLowerCase() != "valid" && result[key].toLowerCase()!="catch-all"){
+            //   // Stop execution if the result is "valid"
+            //   console.log("Validation result is 'valid'. Stopping execution.");
+            //   return;
+            // }
             str = str + `<li>${result[key]}</li>`;
           }
           resultCont.innerHTML = str;
@@ -78,8 +106,8 @@ submitBtn.addEventListener("click", async (e) => {
   }
 });
 
-document.getElementById('resultCont').style.backgroundColor = "#5dffff78"
-document.getElementById('resultCont').style.color = "green"
+document.getElementById("resultCont").style.backgroundColor = "#5dffff78";
+document.getElementById("resultCont").style.color = "green";
 
 // Function to copy text to clipboard
 function copyToClipboard(text, button) {
